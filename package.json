@@ -1,0 +1,38 @@
+{
+  "name": "deftcode-node-ts-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "bin": {
+    "deftcode-node-ts-starter": "dist/src/index.js",
+    "dnts": "dist/src/index.js"
+  },
+  "scripts": {
+    "bundle": "esbuild src/index.ts --outdir=bundle --sourcemap --bundle --platform=node --target=node20.10.0",
+    "clean": "rimraf dist",
+    "compile": "tsc",
+    "compile-watch": "tsc -w",
+    "dev": "nodemon --watch src --watch test --ext ts,json --exec 'npm run bundle && npm start'",
+    "lint": "eslint . --fix",
+    "lint-check": "eslint .",
+    "start": "node --enable-source-maps ./bundle/index.js",
+    "test": "glob \"src/**/*.test.ts\" \"test/**\" -c \"tsx --test\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/nodemon": "^1.19.6",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "esbuild": "^0.20.2",
+    "eslint": "^8.57.0",
+    "glob": "^10.3.12",
+    "nodemon": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.3",
+    "typescript": "^5.4.5"
+  }
+}
